@@ -1,3 +1,16 @@
+@php
+    foreach($watchHistory as $watch){
+        $is_watched[$watch->class_id]=$watch->class_id;
+
+    }
+@endphp
+
+
+
+
+
+
+
 @extends('layout.template')
 @section('content')
 <section class="course-page-header  page-header-3">
@@ -58,9 +71,11 @@
                       <a class="section-item-link" href="{{route('coursewatch',$cls->id)}}">
                         <span class="item-name">{{$cls->title}}</span>
                         <div class="course-item-meta">
-                        
-                          <!--<i class="fa fa-check-circle fa-2x"></i>-->
-                        
+                            @if(!empty($is_watched))
+                                @if(in_array($cls->id,$is_watched))
+                                <span class="item-meta duration">Completed</span>
+                                @endif
+                            @endif
                         </div>
                       </a>
                     </li>

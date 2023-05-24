@@ -7,6 +7,8 @@ use App\Models\Categories;
 use App\Models\Course;
 use App\Models\Classes;
 use App\Models\Sales;
+use App\Models\WatchHistory;
+
 use Auth;
 use DB;
 
@@ -77,7 +79,8 @@ class WelcomeController extends Controller
     {   
         //$categories = Categories::all();
         $courses = Course::findOrFail($id);
-        return view('course_detail',compact('courses'));
+        $watchHistory = WatchHistory ::where('user_id',Auth::id())->where('course_id',$id)->get();
+        return view('course_detail',compact('courses','watchHistory'));
     }
     /**
      * Show the form for creating a new resource.

@@ -117,7 +117,7 @@
          <td>{{$course->amount}}</td>
          <td>{{$course->featured}}</td>
          <td>{{$course->active}}</td>
-         <td><img src="{{asset('public/images/course')}}/{{$course->image}}" class="img-thumbnail" width="150px"></td>
+         <td><img src="{{asset('/images/course')}}/{{$course->image}}" class="img-thumbnail" width="150px"></td>
          <td>
             <div class="btn-group" role="group" aria-label="Basic example">
                <a class="btn btn-sm btn-outline-secondary" href="{{route('course_update',$course->id)}}" role="button"><i class="fa fa-pencil" aria-hidden="true"></i></a>
